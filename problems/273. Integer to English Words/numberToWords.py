@@ -1,53 +1,31 @@
 def numberToWords(num: int) -> str:
+    ''' It uses lists instead of dictionaries '''
     if num == 0: return 'Zero'
-    number_dict = {0: '',
-                   1: 'One',
-                   2: 'Two',
-                   3: 'Three',
-                   4: 'Four',
-                   5: 'Five',
-                   6: 'Six',
-                   7: 'Seven',
-                   8: 'Eight',
-                   9: 'Nine'}
-    teens_dict = {10: 'Ten',
-                  11: 'Eleven',
-                  12: 'Twelve',
-                  13: 'Thirteen',
-                  14: 'Fourteen',
-                  15: 'Fifteen',
-                  16: 'Sixteen',
-                  17: 'Seventeen',
-                  18: 'Eighteen',
-                  19: 'Nineteen'}
-    dozens_dict = {2: 'Twenty',
-                   3: 'Thirty',
-                   4: 'Forty',
-                   5: 'Fifty',
-                   6: 'Sixty',
-                   7: 'Seventy',
-                   8: 'Eighty',
-                   9: 'Ninety'}
+    numbers = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+               'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen',
+               'Eighteen', 'Nineteen']
+    dozens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
     number_depth = ['Thousand', 'Million', 'Billion']
     result = ''
     dozens_list = [str(num)[::-1][x-3:x][::-1] for x in range(3, len(str(num))+3,3)][::-1]
-
+    
     for i in range(len(dozens_list)):
         if int(dozens_list[i]) == 0:
             continue
         if int(dozens_list[i]) >= 100:
-            result += ' ' + number_dict[int(dozens_list[i]) // 100] + ' Hundred'
+            result += ' ' + numbers[int(dozens_list[i]) // 100] + ' Hundred'
         if int(dozens_list[i]) % 100 > 0:
-            j = int(dozens_list[i]) % 100 // 10
-            if j == 1:
-                result += ' ' + teens_dict[int(dozens_list[i]) % 100]
-            elif j == 0:
-                result += ' ' + number_dict[int(dozens_list[i]) % 100 % 10]
+            j = int(dozens_list[i]) % 100
+            k = j // 10
+            if k == 1:
+                result += ' ' + numbers[j]
+            elif k == 0:
+                result += ' ' + numbers[j % 10]
             else:
-                result += ' ' + dozens_dict[j] + ' ' + number_dict[int(dozens_list[i]) % 100 % 10]
+                result += ' ' + dozens[k] + ' ' + numbers[j % 10]
         if len(dozens_list) - i > 1:
             result += ' ' + number_depth[len(dozens_list) - 2 - i]
-
+    
     return ' '.join(result.split())
 
 print(numberToWords(123)) # One Hundred Twenty Three
