@@ -6,22 +6,16 @@ def romanToInt(s: str) -> int:
                   'C': 100,
                   'D': 500,
                   'M': 1000}
-    roman_comb_dict = {'IV': 4,
-                       'IX': 9,
-                       'XL': 40,
-                       'XC': 90,
-                       'CD': 400,
-                       'CM': 900}
     result = 0
-    i = 0
 
-    while i < len(s):
-        if s[i:i+2] in roman_comb_dict:
-            result += roman_comb_dict[s[i:i+2]]
-            i += 2
-        else:
+    for i in range(len(s)):
+        try:
+            if roman_dict[s[i]] < roman_dict[s[i+1]]:
+                result -= roman_dict[s[i]]
+            else:
+                result += roman_dict[s[i]]
+        except:
             result += roman_dict[s[i]]
-            i += 1
 
     return result
 
