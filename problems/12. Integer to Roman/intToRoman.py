@@ -1,26 +1,17 @@
 def intToRoman(num: int) -> str:
-    ''' It creates a string at first with no rules like roman 4, 9 etc. On the next step
-        it correct this string to fit those rules '''
-    roman_dict = {1: 'I',
-                  5: 'V',
-                  10: 'X',
-                  50: 'L',
-                  100: 'C',
-                  500: 'D',
-                  1000: 'M'}
+    ''' It iterates through reversed dictionary of all variations for converting from
+        roman string as keys to integer as values where it creates the result string '''
     result = ''
-    working_num = num
+    # map = {'I':1, 'IV':4, 'V':5, 'IX':9, 'X':10, 'XL':40, 'L':50,
+    #        'XC':90, 'C':100, 'CD':400, 'D':500, 'CM':900,'M':1000}
+    # map = dict(sorted(map.items(), key=lambda x: x[1], reverse=True))
+    map = {'M':1000, 'CM':900, 'D':500, 'CD':400, 'C':100,'XC':90,
+           'L':50, 'XL':40, 'X':10, 'IX':9, 'V':5, 'IV':4, 'I':1}
     
-    for i in [1000, 100, 10, 1]:
-        j = working_num // i
-        if j > 0:            
-            result += roman_dict[i]*j
-            working_num -= i*j
-
-    result = result.replace('CCCCCCCCC','CM').replace('CCCCC','D').replace('CCCC',
-        'CD').replace('XXXXXXXXX','XC').replace('XXXXX','L').replace('XXXX',
-        'XL').replace('IIIIIIIII','IX').replace('IIIII','V').replace('IIII','IV')
-
+    for key,v in map.items():
+        result += key * (num // v)
+        num %= v 
+    
     return result
 
 print(intToRoman(3)) # III
