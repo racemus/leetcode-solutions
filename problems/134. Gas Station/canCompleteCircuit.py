@@ -1,20 +1,18 @@
 def canCompleteCircuit(gas: list[int], cost: list[int]) -> int:
-    ''' It iterates through range of doubled length of list to cycle over again
-        and checks the start point of iterate that lasts by length of list cycles '''
-    if sum(gas) < sum(cost):
-        return - 1
+    ''' It iterates through range of length of list and checks the start point
+        of iteration '''
+    if sum(gas) - sum(cost) < 0:
+        return -1
     start_point = 0
     tank = 0
-    
-    for i in range(len(gas) * 2):
-        tank += gas[i%len(gas)] - cost[i%len(gas)]
+
+    for i in range(len(gas)):
+        tank += gas[i] - cost[i]
         if tank < 0:
-            start_point = (i + 1) % len(gas)
+            start_point = i + 1
             tank = 0
-        if i >= start_point + len(gas):
-            return start_point
-    
-    return -1
+      
+    return start_point
 
 print(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2])) # 3
 print(canCompleteCircuit([1,7,3,4,5,1,7], [7,4,7,2,3,1,4])) # 3
