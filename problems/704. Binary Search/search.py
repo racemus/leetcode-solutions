@@ -11,37 +11,20 @@
 #     else:
 #         return -1
 
-# def search(nums: list[int], target: int) -> int:
-#     ''' It's the most simple solution through index function without binary search '''
-#     return nums.index(target) if target in nums else -1
-
 def search(nums: list[int], target: int) -> int:
-    ''' It's not working. On the long example it goes to infinite loop with next
-        repeated i values:
-        749
-        874
-        937
-        968
-        984
-        992
-        996
-        749 '''
-    if target not in nums:
-        return -1
-    if len(nums) == 1:
-        return 0
-    i = len(nums) // 2 - 1
-    while True:
-        if nums[i] == target:
-            return i
-        elif nums[i] > target:
-            if i == 1:
-                i = 0
-            else:
-                i = -(i // -2)
+    ''' It's the second try '''
+    left = 0
+    right = len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] > target:
+            right = mid - 1 
         else:
-            i += (len(nums) - i) // 2
-        print(i)
+            left = mid + 1
+    return -1
 
 print(search([-1,0,3,5,9,12], 9)) # 4
 print(search([-1,0,3,5,9,12], 2)) # -1 (not found)
