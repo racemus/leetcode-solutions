@@ -1,6 +1,6 @@
 def minDeletionSize(strs: list[str]) -> int:
     counter = 0
-    columns_list = [[strs[n][m] for n in range(len(strs))] for m in range(len(strs[0]))]
+    columns_list = zip(*strs)
     
     for column in columns_list:
         column_sort = sorted(column)
