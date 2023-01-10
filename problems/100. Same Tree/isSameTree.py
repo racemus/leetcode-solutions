@@ -8,24 +8,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def preorderTraversal(root: Optional[TreeNode]) -> list[int]:
-    stack = [root]
-    result = []
-
-    while stack:
-        node = stack.pop()
-        if node:
-            result.append(node.val)
-            stack.append(node.right)
-            stack.append(node.left if node.left else None)
-        else:
-            result.append(None)
-
-    return result
-
 def isSameTree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-    ''' It is iterative method to compare binary trees '''
-    return preorderTraversal(p) == preorderTraversal(q)
+    ''' It is recursive method to compare binary trees '''
+    if not p and not q:
+        return True
+    if not p or not q:
+        return False
+    return p.val == q.val and isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
 
 p1 = TreeNode(1)
 p2 = TreeNode(2)
