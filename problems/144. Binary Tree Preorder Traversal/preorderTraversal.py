@@ -8,22 +8,33 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def preorderTraversal(self, root: TreeNode) -> list[int]:
+#  Ex: root = [1, 2,None, 3,4]
+#         1
+#        /
+#       2
+#      / \
+#     3   4
+#
+#     node     node.left   node.right  stack    ans
+#   –––––––––  –––––––––   –––––––––   ––––––  ––––––
+#                                       [1]     []
+#       1          2         None       [2]     [1]
+#       2          3          4         [4,3]   [1,2]
+#       3        None        None       [4]     [1,2,3]
+#       4        None        None       [4]     [1,2,3,4]
 
-                                            #  Ex: root = [1, 2,None, 3,4]
-        if not root: return []              #         __1
-        stack, ans = [root], []             #        /
-                                            #       2
-        while stack:                        #      / \
-            node = stack.pop()              #     3   4
-            ans.append(node.val)            #
-                                            #     node     node.left   node.right  stack    ans
-            if node.right:                  #   –––––––––  –––––––––   –––––––––   ––––––  ––––––
-                stack.append(node.right)    #                                       [1]     []
-            if node. left:                  #       1          2         None       [2]     [1]
-                stack.append(node.left )    #       2          3          4         [4,3]   [1,2]
-                                            #       3        None        None       [4]     [1,2,3]
-        return ans                          #       4        None        None       [4]     [1,2,3,4]
+def preorderTraversal(root: Optional[TreeNode]) -> list[int]:
+    stack = [root]
+    result = []
+
+    while stack:
+        node = stack.pop()
+        if node:
+            result.append(node.val)
+            stack.append(node.right)
+            stack.append(node.left)
+
+    return result
 
 n1 = TreeNode(1)
 n2 = TreeNode(2)
