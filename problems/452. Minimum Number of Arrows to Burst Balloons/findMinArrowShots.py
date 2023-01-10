@@ -1,20 +1,15 @@
 def findMinArrowShots(points: list[list[int]]) -> int:
-    ''' It sorts list by start point in child lists and iterates from the second one
-        to find intersecting baloons, but it has a flaw: it shoud start with
-        result = 1 to cover the last uncounted ballon '''
-    if len(points) <= 1:
-        return len(points)
-    sorted_points = sorted(points)
-    result = 1
-    max_points = [sorted_points[0][1]]
-
-    for i in range(len(sorted_points) - 1):
-        min_point = sorted_points[i+1][0]
-        if min_point > min(max_points):
+    ''' It sorts list by end point in child lists and iterates by both points to find
+        intersections '''
+    points = sorted(points, key = lambda x: x[1])
+    result = 0
+    last_max = -float('inf')
+    
+    for start, end in points:
+        if start > last_max:
             result += 1
-            max_points = [sorted_points[i+1][1]]
-        max_points.append(sorted_points[i+1][1])
-
+            last_max = end
+    
     return result
 
 print(findMinArrowShots([[10,16],[2,8],[1,6],[7,12]])) # 2
