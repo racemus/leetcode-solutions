@@ -1,19 +1,18 @@
 def minimumPartition(s: str, k: int) -> int:
-    ''' It iterates through string and compare accumulating helper string with k.
-        It has same flaw as my findMinArrowShots version that needs result = 1 at
-        at start to cover last element of iteration. '''
-    if int(s) == k:
-            return 1
-    result = 1
-    compare = ''
+    ''' It iteratess through the s string with included iteration that checks digits until
+        their combinations become higher than k or all digits checked. '''
+    result = 0
+    left = 0
+    right = 0
 
-    for l in s:
-        if int(l) > k:
+    while right < len(s):
+
+        while right < len(s) and int(s[left:right + 1]) <= k:
+            right += 1
+        result += 1
+        if left == right:
             return -1
-        compare = compare + l
-        if int(compare) >= k:
-            result += 1
-            compare = l
+        left = right
 
     return result
 
