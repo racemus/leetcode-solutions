@@ -1,5 +1,9 @@
-# def search(nums: list[int], target: int, left, right) -> int:
-#     ''' It is classic recurtion binary search, but it needs two more parameters '''
+from typing import List
+
+# def search(nums: List[int], target: int, left, right) -> int:
+#     '''
+#     It is classic recurtion binary search, but it needs two more parameters
+#     '''
 #     if right >= left:
 #         mid = (left + right) // 2
 #         if nums[mid] == target:
@@ -11,8 +15,10 @@
 #     else:
 #         return -1
 
-def search(nums: list[int], target: int) -> int:
-    ''' It's the second try '''
+def search(nums: List[int], target: int) -> int:
+    '''
+    It's the second try
+    '''
     left = 0
     right = len(nums) - 1
 

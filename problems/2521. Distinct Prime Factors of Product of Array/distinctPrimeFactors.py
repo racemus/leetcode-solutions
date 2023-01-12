@@ -1,7 +1,10 @@
 import math
+from typing import List
 
-def distinctPrimeFactors(nums: list[int]) -> int:
-    ''' It iterates over list of numbers and finds all prime factors for all numbers in list '''
+def distinctPrimeFactors(nums: List[int]) -> int:
+    '''
+    It iterates over list of numbers and finds all prime factors for all numbers in list
+    '''
     result = set()
     
     for num in nums:

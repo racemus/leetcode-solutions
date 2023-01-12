@@ -1,5 +1,9 @@
-def maxIceCream(costs: list[int], coins: int) -> int:
-    ''' It iterates through sorted costs spending coins till it still avaliable '''
+from typing import List
+
+def maxIceCream(costs: List[int], coins: int) -> int:
+    '''
+    It iterates through sorted costs spending coins till it still avaliable
+    '''
     costs.sort()
     for i in range(len(costs)):
         coins -= costs[i]

@@ -1,6 +1,9 @@
 def wordPattern(pattern: str, s: str) -> bool:
-    ''' It puts every pair of letter from pattern and word from s to dictionary in iteration
-        like creating paring rules and compares every new pair with this rules on next iterations '''
+    '''
+    It puts every pair of letter from pattern and word from s to dictionary in iteration
+    like creating paring rules and compares every new pair with this rules on next
+    iterations
+    '''
     pattern_dict = {}
     pattern_list = [*pattern]
     s_list = s.split()

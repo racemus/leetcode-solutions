@@ -1,9 +1,12 @@
 import itertools
+from typing import List
 
-def maxPoints(points: list[list[int]]) -> int:
-    ''' It's creates a list of combinations of 2 points (minimum for a line) and then
-        iterates over them and points to find triangles with zero area i.e. line with
-        3 points '''
+def maxPoints(points: List[List[int]]) -> int:
+    '''
+    It's creates a list of combinations of 2 points (minimum for a line) and then
+    iterates over them and points to find triangles with zero area i.e. line with
+    3 points
+    '''
     count = 0
     max_count = 0
     if len(points) <= 2:

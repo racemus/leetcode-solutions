@@ -1,6 +1,9 @@
-def canCompleteCircuit(gas: list[int], cost: list[int]) -> int:
-    ''' It iterates through range of length of list and checks the start point
-        of iteration '''
+from typing import List
+
+def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
+    '''
+    It iterates through range of length of list and checks the start point of iteration
+    '''
     if sum(gas) - sum(cost) < 0:
         return -1
     start_point = 0

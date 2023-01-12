@@ -1,15 +1,18 @@
 from typing import Optional
 
-# Definition for a binary tree node.
 class TreeNode:
-    
+    '''
+    Definition for a binary tree node
+    '''
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
 def isSameTree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-    ''' It is recursive method to compare binary trees '''
+    '''
+    It is recursive method to compare binary trees
+    '''
     if not p and not q:
         return True
     if not p or not q:
@@ -48,6 +51,6 @@ q8 = TreeNode(2)
 q6.left = q7
 q6.right = q8
 
-print(isSameTree(p1, q1))
-print(isSameTree(p4, q4))
-print(isSameTree(p6, q6))
+print(isSameTree(p1, q1)) # True
+print(isSameTree(p4, q4)) # False
+print(isSameTree(p6, q6)) # False

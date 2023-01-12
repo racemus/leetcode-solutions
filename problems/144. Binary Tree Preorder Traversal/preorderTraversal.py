@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -23,7 +23,10 @@ class TreeNode:
 #       3        None        None       [4]     [1,2,3]
 #       4        None        None       [4]     [1,2,3,4]
 
-def preorderTraversal(root: Optional[TreeNode]) -> list[int]:
+def preorderTraversal(root: Optional[TreeNode]) -> List[int]:
+    '''
+    It is not recursive simple pre-order traversal solution
+    '''
     stack = [root]
     result = []
 
@@ -60,7 +63,7 @@ n7.right = n10
 n8.left = n11
 n8.right = n12
 
-print(preorderTraversal(n1))
-print(preorderTraversal(n4))
-print(preorderTraversal(n5))
-print(preorderTraversal(n6))
+print(preorderTraversal(n1)) # [1, 2, 3]
+print(preorderTraversal(n4)) # []
+print(preorderTraversal(n5)) # [1]
+print(preorderTraversal(n6)) # [1, 2, 4, 5, 3, 6, 7]

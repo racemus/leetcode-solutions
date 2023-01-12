@@ -1,6 +1,10 @@
-def findMinArrowShots(points: list[list[int]]) -> int:
-    ''' It sorts list by end point in child lists and iterates by both points to find
-        intersections '''
+from typing import List
+
+def findMinArrowShots(points: List[List[int]]) -> int:
+    '''
+    It sorts list by end point in child lists and iterates by both points to find
+    intersections
+    '''
     points = sorted(points, key = lambda x: x[1])
     result = 0
     last_max = -float('inf')

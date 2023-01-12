@@ -1,6 +1,8 @@
 def minimumPartition(s: str, k: int) -> int:
-    ''' It iteratess through the s string with included iteration that checks digits until
-        their combinations become higher than k or all digits checked. '''
+    '''
+    It iteratess through the s string with included iteration that checks digits until
+    their combinations become higher than k or all digits checked.
+    '''
     result = 0
     left = 0
     right = 0

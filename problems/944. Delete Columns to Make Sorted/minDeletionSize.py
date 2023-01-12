@@ -1,4 +1,6 @@
-def minDeletionSize(strs: list[str]) -> int:
+from typing import List
+
+def minDeletionSize(strs: List[str]) -> int:
     counter = 0
     columns_list = zip(*strs)
     
@@ -8,7 +10,6 @@ def minDeletionSize(strs: list[str]) -> int:
             counter += 1
     
     return counter
-
 
 print(minDeletionSize(["cba","daf","ghi"])) # 1
 print(minDeletionSize(["a","b"])) # 0

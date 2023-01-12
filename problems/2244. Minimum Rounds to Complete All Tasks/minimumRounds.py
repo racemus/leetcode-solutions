@@ -1,6 +1,8 @@
 from collections import Counter
+from typing import List
 
-def minimumRounds(tasks: list[int]) -> int:
+
+def minimumRounds(tasks: List[int]) -> int:
     result = 0
     # tasks_set = set(tasks)
     # tasks_dict = {j:tasks.count(j) for j in tasks_set}

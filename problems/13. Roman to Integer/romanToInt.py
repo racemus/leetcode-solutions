@@ -1,4 +1,8 @@
 def romanToInt(s: str) -> int:
+    '''
+    It iterates through roman string and adds values from dictionary to result checking
+    4/9 rules
+    '''
     roman_dict = {'I': 1,
                   'V': 5,
                   'X': 10,

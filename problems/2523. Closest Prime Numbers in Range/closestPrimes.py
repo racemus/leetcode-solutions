@@ -1,5 +1,7 @@
-# def isPrime(n):
-#     ''' Strange prime chaking function; need to investigate '''
+import math
+from typing import List
+
+# def isPrime(n): # Strange prime chaking function; need to investigate
 #     if (n <= 1):
 #         return False
 #     if (n <= 3):
@@ -15,8 +17,6 @@
 #
 #     return True
 
-import math
-
 def isPrime(n): # interesting to check its perfomance when math.sqrt in the iteration range
     if n <= 1:
         return False
@@ -28,11 +28,13 @@ def isPrime(n): # interesting to check its perfomance when math.sqrt in the iter
 
     return True
 
-def closestPrimes(left: int, right: int) -> list[int]:
-    ''' It iterates through all integers between left and right included and collect
-        all primes to list, and when it becomem bigger than 2 primes, it also begins
-        to check minimum delta betwen them to save time. If there is no quick win,
-        it iteretes through primes list to find the closest couple. '''
+def closestPrimes(left: int, right: int) -> List[int]:
+    '''
+    It iterates through all integers between left and right included and collect all
+    primes to list, and when it becomem bigger than 2 primes, it also begins to check
+    minimum delta betwen them to save time. If there is no quick win, it iteretes through
+    primes list to find the closest couple.
+    '''
     primes = []
     delta = float('inf')
     
