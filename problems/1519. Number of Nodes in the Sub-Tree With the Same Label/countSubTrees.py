@@ -11,7 +11,7 @@ def graphFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
     for edge in edges:
         nodes.setdefault(str(edge[0]), {str(edge[1])}).add(str(edge[1]))
         nodes.setdefault(str(edge[1]), {str(edge[0])}).add(str(edge[0]))
-        
+
     return nodes
 
 def treeFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
@@ -44,22 +44,71 @@ def countLabeledNodes(graph: Dict[str, Set[str]], node: str, labels: str,
 
     return results.count(labels[int(node)])
 
+# def countSubTrees(n: int, edges: List[List[int]], labels: str) -> List[int]:
+#     '''
+
+#     '''
+#     graph = graphFromEdges(edges)
+#     print(graph)
+#     results = []
+#     seen = set()
+
+#     for node in graph:
+#         if node not in seen:
+#             seen.add(node)
+#         print('node:', node, 'labels:', labels, 'countLabeledNodes:', countLabeledNodes(graph, node, labels))
+#         results.append(countLabeledNodes(graph, node, labels))
+
+#     return results
+
+##### DFS example
+# def countSubTrees(n: int, edges: List[List[int]], labels: str) -> List[int]:
+#     '''
+#     - It builds the graph from edges.
+#     - It traverses a tree by recursion, keeping track of each node's parent so it doesn't
+#       revisit already visited node.
+#     - During the traversal, it keeps track of the label counts in result.
+#     - Once the travesal is completed, it returns result.
+#     '''
+#     graph = defaultdict(list)
+#     labelCount = defaultdict(int)
+#     result = [0] * n
+    
+#     for a, b in edges:
+#         graph[a].append(b)
+#         graph[b].append(a)
+    
+#     def dfs(node=0, parent=None):
+#         previous = labelCount[labels[node]]
+#         labelCount[labels[node]] += 1
+        
+#         for child in graph[node]:
+#             if child != parent: dfs(child, node)
+
+#         result[node] = labelCount[labels[node]] - previous
+
+#     dfs()
+#     return result
+
 def countSubTrees(n: int, edges: List[List[int]], labels: str) -> List[int]:
-    '''
-
-    '''
-    graph = graphFromEdges(edges)
-    print(graph)
-    results = []
     seen = set()
+    graph = defaultdict(list)
 
-    for node in graph:
-        if node not in seen:
-            seen.add(node)
-        print('node:', node, 'labels:', labels, 'countLabeledNodes:', countLabeledNodes(graph, node, labels))
-        results.append(countLabeledNodes(graph, node, labels))
+    for a,b in edges: 
+        graph[a].append((b))
+        graph[b].append((a))
 
-    return results
+    result = []
+       
+    def dfs(node: int)->int:
+        seen.add(node)    
+        result.append(dfs(n) for n in graph[node] if n not in seen) 
+        if not result and not hasApple[node]:
+            return 0
+
+        return result.count(labels[node])
+
+    return dfs(0)
 
 
 # print(graphFromEdges([[0,2],[0,3],[1,2]]))
