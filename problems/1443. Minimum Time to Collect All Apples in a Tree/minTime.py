@@ -1,4 +1,5 @@
 from typing import Optional, List, Dict, Set
+from collections import defaultdict
 
 # def treeFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
 #     '''
@@ -15,10 +16,12 @@ from typing import Optional, List, Dict, Set
 #     return nodes
 
 # def nodeHasApples(tree: Dict[str, Set[str]], node: str, hasApple: List[bool],
-#     results: List[bool]=[]) -> bool:
+#     results: List[bool]=None) -> bool:
 #     '''
 #     It checks are there any apples in provided node and lower in tree.
 #     '''
+#     if results == None:
+#         results = []
 #     results.append(hasApple[int(node)])
 #     if node in tree:
 #         for next_node in tree[node]:
@@ -43,8 +46,8 @@ from typing import Optional, List, Dict, Set
 #         # print('stack:', stack)
 #         node = stack.pop(0)
 
-#         if nodeHasApples(tree, node, hasApple, []):
-#             print('node:', node, 'nodeHasApples:', nodeHasApples(tree, node, hasApple, []))
+#         if nodeHasApples(tree, node, hasApple):
+#             print('node:', node, 'nodeHasApples:', nodeHasApples(tree, node, hasApple))
 #             result += 2
 #             # print(result)
 #             # path.append(node)
@@ -59,26 +62,35 @@ from typing import Optional, List, Dict, Set
 
 def minTime(n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
     '''
-    False try just with edges
+    It backs to handle functions, but works with edges. It still have LTE on leetcode.com
+    on "very big" test case. It solved it in terminal, but I don't know the answers was
+    right or not. Anyway it needs to rework with graph fuction instead of tree and maybe
+    combine with previous one.
     '''
-    if sum(hasApple) == 0:
-        return 0
+    # if sum(hasApple) == 0:
+    #     return 0
     counter = 0
-    path = []
+    # checked = [0]
 
+    ends = [edge[1] for edge in edges]
+    ends.append(0)
+    # print(ends)
+
+    for i in range(len(edges)):
+        if edges[i][0] not in ends:
+            edges[i] = [edges[i][1],edges[i][0]]
+    # print(edges)
+    tree = treeFromEdges(edges)
+    # print(tree)
     for edge in edges:
-        if hasApple[edge[1]]:
-            if edge[0] in path:
-                counter += 2
-            else:
-                counter += len(path) * 2 + 2
-                path.append(edge[0])
-                path.append(edge[1])
-            # path.append(edge[1])
-        elif hasApple[edge[0]] and edge[0] not in path:
-            path.append(edge[0])
-            counter += edge[0] * 2 + 2
-
+        # print('edge #1:', edge, 'cheking node:', edge[1], 'counter', counter)
+        # print('nodeHasApples:', nodeHasApples(tree, str(edge[1]), hasApple))
+        # if edge[0] in checked:
+        if nodeHasApples(tree, str(edge[1]), hasApple):
+            counter += 2
+            # checked.append(edge[0]) if edge[0] not in checked else checked
+            # checked.append(edge[1]) if edge[1] not in checked else checked
+        # print('edge #2:', edge, 'counter', counter)
     return counter
 
 # print(treeFromEdges([[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]]))
