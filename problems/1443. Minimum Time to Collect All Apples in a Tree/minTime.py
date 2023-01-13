@@ -1,32 +1,33 @@
 from typing import Optional, List, Dict, Set
 from collections import defaultdict
 
-# def treeFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
-#     '''
-#     It creates tree in dict with parent nodes as keys and sets of children nodes as
-#     values
-#     N.B. I had to make not a tree, but two-ways undirected graph.
-#     '''
-#     nodes = {}
-#     for edge in edges:
-#         if str(edge[0]) not in nodes:
-#             nodes[str(edge[0])] = {str(edge[1])}
-#         else:
-#             nodes[str(edge[0])].add(str(edge[1]))
-#     return nodes
+def treeFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
+    '''
+    It creates tree in dict with parent nodes as keys and sets of children nodes as
+    values
+    N.B. I had to make not a tree, but two-ways undirected graph.
+    '''
+    nodes = {}
+    for edge in edges:
+        # if str(edge[0]) not in nodes:
+        #     nodes[str(edge[0])] = {str(edge[1])}
+        # else:
+        #     nodes[str(edge[0])].add(str(edge[1]))
+        nodes.setdefault(str(edge[0]), {str(edge[1])}).add(str(edge[1]))
+    return nodes
 
-# def nodeHasApples(tree: Dict[str, Set[str]], node: str, hasApple: List[bool],
-#     results: List[bool]=None) -> bool:
-#     '''
-#     It checks are there any apples in provided node and lower in tree.
-#     '''
-#     if results == None:
-#         results = []
-#     results.append(hasApple[int(node)])
-#     if node in tree:
-#         for next_node in tree[node]:
-#             nodeHasApples(tree, next_node, hasApple, results)
-#     return any(results)
+def nodeHasApples(tree: Dict[str, Set[str]], node: str, hasApple: List[bool],
+    results: List[bool]=None) -> bool:
+    '''
+    It checks are there any apples in provided node and lower in tree.
+    '''
+    if results == None:
+        results = []
+    results.append(hasApple[int(node)])
+    if node in tree:
+        for next_node in tree[node]:
+            nodeHasApples(tree, next_node, hasApple, results)
+    return any(results)
 
 ##### better check with graph function
 # def minTime(n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
