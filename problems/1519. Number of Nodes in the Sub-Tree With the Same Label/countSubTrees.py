@@ -37,7 +37,7 @@ def treeFromEdges(edges: List[List[int]]) -> Dict[str, Set[str]]:
 def countLabeledNodes(graph: Dict[str, Set[str]], node: str, labels: str,
     results: List[bool]=None, seen: List[bool]=None) -> int:
     '''
-
+    It 
     '''
     if results == None:
         results = []
