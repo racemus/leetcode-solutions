@@ -1,4 +1,7 @@
 class Solution:
+	'''
+	My first try. Doesn't work yet!
+	'''
     def snakesAndLadders(self, board: List[List[int]]) -> int:
         plain_way = []
         graph = defaultdict(set)

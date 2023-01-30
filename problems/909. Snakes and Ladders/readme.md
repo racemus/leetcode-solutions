@@ -1,4 +1,5 @@
-#### 909. Snakes and Ladders
+### 909. Snakes and Ladders
+**Medium**
 
 You are given an `n × n` integer matrix `board` where the cells are labeled from `1` to <code>n<sup>2</sup></code> in a [Boustrophedon style](https://en.wikipedia.org/wiki/Boustrophedon) starting from the bottom left of the board (i.e. `board[n - 1][0]`) and alternating direction each row.
 
@@ -21,7 +22,7 @@ Return the least number of moves required to reach the square <code>n<sup>2</sup
 
 **Example 1:**
 
-![](snakes.png)
+<img src="snakes.png" width="500">
 
 <pre>
 <b>Input:</b> board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]
