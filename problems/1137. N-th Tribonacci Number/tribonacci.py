@@ -1,29 +1,45 @@
+from functools import lru_cache
 import unittest
 
 # [0,1,1,2,4,7,13,24,44,81,149,274,504,927,1705,3136]
 
-# class Solution:
-#     '''
-#     My first try with recursion. It's really slow for larger numbers. Causes LTE.
-#     '''
-#     def tribonacci(self, n: int) -> int:
-#         if n < 0:
-#             return 0
-#         if n in {0, 1}:
-#             return n
-#         return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci (n - 3)
-
 class Solution:
     '''
-    My second approach with loop over n range and adding the sum of 3 previous elements
-    of sequence as the next element. Turned out to be much faster.
+    My first approach with recursion optimized by cache. Much faster!
+    TO DO: compare speed of approaches.
     '''
+    @lru_cache # it changes everything
     def tribonacci(self, n: int) -> int:
-        result = [0,1,1]
-        for i in range(3, n + 1):
-            result.append(result[i-1] + result[i-2] + result[i-3])
-        return result[n]
+        if n < 0:
+            return 0
+        if n in {0, 1}:
+            return n
+        return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci (n - 3)
 
+# class Solution:
+#     '''
+#     My second approach with loop over n range and adding the sum of 3 previous elements
+#     of sequence as the next element. Turned out to be much faster.
+#     '''
+#     def tribonacci(self, n: int) -> int:
+#         result = [0,1,1]
+#         for i in range(3, n + 1):
+#             result.append(result[i-1] + result[i-2] + result[i-3])
+#         return result[n]
+
+### GREAT EXAMPLE
+# class Solution:
+#     '''
+#     Great example for memory optimization. It doesn't grow result list length more than 3
+#     by changing each n-3 with n. List always has just only 3 digits necessary for
+#     calculation a next one.
+#     '''
+#     def tribonacci(self, n: int) -> int:
+#         result = [0,1,1]
+#         for i in range(3, n + 1):
+#             result[i%3] = sum(result)
+#         return result[n%3]
+###
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
