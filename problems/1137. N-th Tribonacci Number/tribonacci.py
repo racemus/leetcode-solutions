@@ -1,19 +1,29 @@
-# from typing import Optional, List, Tuple, Dict, Set
 import unittest
+
+# [0,1,1,2,4,7,13,24,44,81,149,274,504,927,1705,3136]
+
+# class Solution:
+#     '''
+#     My first try with recursion. It's really slow for larger numbers. Causes LTE.
+#     '''
+#     def tribonacci(self, n: int) -> int:
+#         if n < 0:
+#             return 0
+#         if n in {0, 1}:
+#             return n
+#         return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci (n - 3)
 
 class Solution:
     '''
-    My first try with recursion. It's really slow for larger numbers. Causes LTE.
+    My second approach with loop over n range and adding the sum of 3 previous elements
+    of sequence as the next element. Turned out to be much faster.
     '''
     def tribonacci(self, n: int) -> int:
-        if n < 0:
-            return 0
-        if n in {0, 1}:
-            return n
-        return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci (n - 3)
+        result = [0,1,1]
+        for i in range(3, n + 1):
+            result.append(result[i-1] + result[i-2] + result[i-3])
+        return result[n]
 
-
-# [0,1,1,2,4,7,13,24,44,81,149,274,504,927,1705,3136]
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -55,11 +65,11 @@ class TestSolution(unittest.TestCase):
     def test_12(self):
         self.assertEqual(self.solution.tribonacci(15), 3136)
 
-    # def test_13(self):
-    #     self.assertEqual(self.solution.tribonacci(25), 1389537)
+    def test_13(self):
+        self.assertEqual(self.solution.tribonacci(25), 1389537)
 
-    # def test_14(self):
-    #     self.assertEqual(self.solution.tribonacci(29), 15902591)
+    def test_14(self):
+        self.assertEqual(self.solution.tribonacci(29), 15902591)
 
 if __name__ == '__main__':
     unittest.main()
