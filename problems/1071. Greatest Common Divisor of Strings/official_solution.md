@@ -1,4 +1,4 @@
-**Overview**
+#### Overview
 
 In this problem, we are looking for the Greatest Common Divisor of two strings, which for convenience we will consider as the **GCD string**. To remove ambiguity, here we regard:
 
@@ -39,7 +39,7 @@ If `base` is the GCD string, then both `str1` and `str2` are made up of multiple
 **Implementation**
 
 <details>
-  <summary>C++</summary>
+  <summary><b>C++</b></summary>
 
 ``` c++
 class Solution {
@@ -67,7 +67,7 @@ class Solution {
 ```
 </details>
 <details>
-  <summary>Java</summary>
+  <summary><b>Java</b></summary>
 
 ``` java
 class Solution {
@@ -104,9 +104,9 @@ public:
 ```
 </details>
 <details>
-  <summary>Python 3</summary>
+  <summary><b>Python 3</b></summary>
 
-```python
+``` python
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         len1, len2 = len(str1), len(str2)
@@ -208,7 +208,7 @@ In conclusion, if there exists divisible strings, the GCD string must be `gcdBas
 **Implementation**
 
 <details>
-  <summary>C++</summary>
+  <summary><b>C++</b></summary>
 
 ``` c++
 class Solution {
@@ -227,7 +227,7 @@ public:
 ```
 </details>
 <details>
-  <summary>Java</summary>
+  <summary><b>Java</b></summary>
 
 ``` java
 class Solution {
@@ -253,9 +253,9 @@ class Solution {
 ```
 </details>
 <details>
-  <summary>Python 3</summary>
+  <summary><b>Python 3</b></summary>
 
-```python
+``` python
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         # Check if they have non-zero GCD string.
