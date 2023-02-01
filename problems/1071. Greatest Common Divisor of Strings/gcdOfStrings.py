@@ -27,6 +27,51 @@ class Solution:
 
         return ''
 
+### EXAMPLE
+# class Solution:
+#     '''
+#     Fastest solution using ready method gcn from math library to find the greatest common
+#     divisor. Also, It compares the sum of strings in the beginning by adding them to each
+#     other in both ways. If they both are divisible by the same divisor, their sum must be
+#     the same.
+#     '''
+#     def gcdOfStrings(self, str1: str, str2: str) -> str:
+#         if (str1 + str2 != str2 + str1):
+#             return ''
+#         return str1[:math.gcd(len(str1),len(str2))]
+
+### EXAMPLE
+# class Solution:
+#     '''
+#     It's a recursive solution. It cuts a smaller string from a bigger one and repeats
+#     itself with the remainder of the bigger string. In the end, strings become the same
+#     and also equals to the answer.
+#     '''
+#     def gcdOfStrings(self, str1: str, str2: str) -> str:
+#         if len(str1) == len(str2):
+#             return str1 if str1==str2 else ''
+#         else:
+#             if len(str1) < len(str2):
+#                 str1,str2 = str2,str1
+#             if str1[:len(str2)] == str2:
+#                 return self.gcdOfStrings(str1[len(str2):],str2)
+#             else:
+#                 return ''
+
+### EXAMPLE
+# class Solution:
+#     '''
+#     This solution uses the same approach as mine when it works with substrings, but its
+#     calculation of greatest common divisor is much simpler and overall it has less memory
+#     consumption.
+#     '''
+#     def gcdOfStrings(self, str1: str, str2: str) -> str:
+#         for i in range(min(len(str1), len(str2)), 0, -1):
+#             if (len(str1) % i) == 0 and (len(str2) % i) == 0:
+#                 if str1[:i] * (len(str1) // i) == str1 and str1[:i] * (len(str2) // i) == str2:
+#                     return str1[:i]
+#         return ''
+
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
