@@ -1,6 +1,7 @@
 ### 909. Snakes and Ladders
 **Medium**
 
+
 You are given an `n × n` integer matrix `board` where the cells are labeled from `1` to <code>n<sup>2</sup></code> in a [Boustrophedon style](https://en.wikipedia.org/wiki/Boustrophedon) starting from the bottom left of the board (i.e. `board[n - 1][0]`) and alternating direction each row.
 
 You start on square `1` of the board. In each move, starting from square `curr`, do the following:
