@@ -81,8 +81,45 @@ class Solution:
 
             row = [s[j] for j in sorted(list(row))]
             rows.extend(row)
-            # print(rows)
+            # print('rows =', rows)
         return ''.join(rows)
+
+### EXAMPLE
+# class Solution:
+#     '''
+#     Simple and great solution. It forms the answer string in iteration over characters of
+#     s string with help of 2 integers: row and step. Step shows the way zigzag goes:
+#     forward or backward, and equals 1 or -1 respectively. Row equals the current row
+#     index, and it increments every iteration by step.
+#     '''    
+#     def convert(self, s: str, numRows: int) -> str:
+#         if numRows == 1:
+#             return s
+#         zigzag = ['' for _ in range(numRows)]
+#         row = 0
+#         step = 1
+#         for c in s:
+#             zigzag[row] += c
+#             if row == numRows-1:
+#                 step = -1
+#             elif row == 0:
+#                 step = 1
+#             row += step
+#         return ''.join(zigzag)
+
+### EXAMPLE
+# class Solution:
+#     '''
+#     This solution also uses zigzag filling of strings in a list of rows, but in different
+#     way. It creates a helper list of indexes of move forward and backward and uses it as
+#     a pattern-filter for indexes of characters in the s string.
+#     '''
+#     def convert(self, s: str, numRows: int) -> str:
+#         temp=list(range(numRows))+list(range(numRows-2,0,-1))
+#         res=[""]*numRows
+#         for i,c in enumerate(s):
+#             res[temp[i%len(temp)]]+=c
+#         return("".join(res))
 
 
 class TestSolution(unittest.TestCase):
