@@ -1,4 +1,4 @@
-from typing import Optional, List, Dict, Set
+from typing import List, Dict, Set
 from collections import defaultdict
 import unittest
 

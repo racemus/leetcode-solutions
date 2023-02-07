@@ -1,8 +1,7 @@
 ### 909. Snakes and Ladders
 **Medium**
 
-
-
+<br />
 You are given an `n × n` integer matrix `board` where the cells are labeled from `1` to <code>n<sup>2</sup></code> in a [Boustrophedon style](https://en.wikipedia.org/wiki/Boustrophedon) starting from the bottom left of the board (i.e. `board[n - 1][0]`) and alternating direction each row.
 
 You start on square `1` of the board. In each move, starting from square `curr`, do the following:
@@ -20,7 +19,7 @@ Note that you only take a snake or ladder at most once per move. If the destinat
 - For example, suppose the board is `[[-1,4],[-1,3]]`, and on the first move, your destination square is `2`. You follow the ladder to square `3`, but do not follow the subsequent ladder to `4`.
 
 Return the least number of moves required to reach the square <code>n<sup>2</sup></code>. If it is not possible to reach the square, return `-1`.
-
+<br />
 
 **Example 1:**
 
@@ -44,7 +43,7 @@ This is the lowest possible number of moves to reach the last square, so return 
 <b>Input:</b> board = [[-1,-1],[-1,3]]
 <b>Output:</b> 1
 </pre>
-
+<br />
 
 **Constraints:**
 
