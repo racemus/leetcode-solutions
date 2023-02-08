@@ -145,7 +145,5 @@ class Solution:
 
 Let $n$ be the length of the input array `nums`.
 
-- Time complexity: $O(n)$
-: We iterate over `nums` and stop at the second last element. In each step of the iteration, we make some calculations that take constant time. Therefore, the overall time complexity is $O(n)$.
-- Space complexity: $O(1)$
-: In the iteration, we only need to update three variables, `curEnd`, `curFar` and `answer`, they only take constant space.
+- Time complexity: $O(n)$<p>We iterate over `nums` and stop at the second last element. In each step of the iteration, we make some calculations that take constant time. Therefore, the overall time complexity is $O(n)$.</p>
+- Space complexity: $O(1)$<p>In the iteration, we only need to update three variables, `curEnd`, `curFar` and `answer`, they only take constant space.</p>

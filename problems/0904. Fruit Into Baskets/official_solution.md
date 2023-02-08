@@ -332,7 +332,6 @@ Let $n$ be the length of the input array `fruits`.
   - Compared with approach 1, we only have two nested loops now.
   - In each iteration step, we need to add the current fruit to the hash set `basket`, which takes constant time.
   - To sum up, the overall time complexity is $O(n^2)$
-
 - Space complexity: $O(1)$
   - During the iteration, we need to count the number of types in every possible subarray and update the maximum length. Since we used the early stop method, thus the types will never exceed 3. Therefore, the space complexity is $O(1)$
 <br>
@@ -487,11 +486,7 @@ Let $n$ be the length of the input array `fruits`.
   - At each step, we update the hash set by addition or deletion of one fruit, which takes constant time.
   - In summary, the overall time complexity is $O(n)$
 - Space complexity: $O(n)$
-  - In the worst-case scenario, there might be at most $O(n)$ types of fruits inside the window. Take the picture below as an example. Imagine that we have an array of fruits like the following. (The first half is all one kind of fruit, while the second half is $n/2$ types of fruits)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![img](904_sc_1.png)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the first half of the iteration, the window size is expanded to $n/2$, i.e. $O(n)$. In the second half of the iteration, since we have to keep the window size, so it will contain all the $n/2$ types of fruits and end up with $O(n)$ space.
-: ![img](904_sc_2.png)
-: Therefore, the space complexity is $O(n)$.
+  - In the worst-case scenario, there might be at most $O(n)$ types of fruits inside the window. Take the picture below as an example. Imagine that we have an array of fruits like the following. (The first half is all one kind of fruit, while the second half is $n/2$ types of fruits)<p>![img](904_sc_1.png)</p><p>In the first half of the iteration, the window size is expanded to $n/2$, i.e. $O(n)$. In the second half of the iteration, since we have to keep the window size, so it will contain all the $n/2$ types of fruits and end up with $O(n)$ space.</p><p>![img](904_sc_2.png)</p><p>Therefore, the space complexity is $O(n)$.</p>
 <br>
 
 #### Approach 4: Sliding Window II
@@ -528,9 +523,7 @@ For the details on the implementation, let's take a look at the following slides
 
 3. We iterate over `right` and add `fruits[right]` to this window.
    - If there are no more than 2 types of fruits, this subarray is valid.
-   - Otherwise, we need to keep removing fruits from the left side until there are only 2 types of fruits in the window.
-&nbsp;&nbsp;&nbsp;&nbsp;Then we update `max_picked` as `max(max_picked, right - left + 1)`.
-
+   - Otherwise, we need to keep removing fruits from the left side until there are only 2 types of fruits in the window.<p>Then we update `max_picked` as `max(max_picked, right - left + 1)`.</p>
 4. Once we finish iterating, return `max_picked` as the maximum number of fruits we can collect.
 
 **Implementation**
