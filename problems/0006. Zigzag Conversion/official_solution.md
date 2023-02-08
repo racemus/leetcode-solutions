@@ -14,6 +14,7 @@ In that problem, we can simulate spiral movement. In this problem, we need to si
 You can get an idea about matrix filling from this animation:
 
 ![animation](filling.gif)
+<br>
 
 #### Approach 1: Simulate Zig-Zag Movement
 
@@ -274,6 +275,7 @@ Here, $n$ is the length of the input string, and $numRows$ is the number of rows
   - Thus, overall we take $O(2(numRows⋅n)+n)=O(numRows⋅n)$ time.
 - Space complexity: $O(numRows⋅n)$.
  - We use an additional 2-dimensional array of size $numRows×numCols$, where $O(numCols)=O(n)$.
+<br>
 
 #### Approach 2: String Traversal
 

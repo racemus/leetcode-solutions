@@ -4,6 +4,7 @@ In this problem, we are looking for the Greatest Common Divisor of two strings, 
 
 - all strings that divides both `str1` and `str2` as **divisible strings**.
 - the longest string among all **divisible strings** as the **GCD string**.
+<br>
 
 #### Approach 1: Brute Force
 
@@ -43,34 +44,6 @@ If `base` is the GCD string, then both `str1` and `str2` are made up of multiple
 
 ``` c++
 class Solution {
-    public boolean valid(String str1, String str2, int k) {
-        int len1 = str1.length(), len2 = str2.length();
-        if (len1 % k > 0 || len2 % k > 0) {
-            return false;
-        } else {
-            String base = str1.substring(0, k);
-            return str1.replace(base, "").isEmpty() && str2.replace(base, "").isEmpty();
-        }
-    }
-    
-    
-    public String gcdOfStrings(String str1, String str2) {
-        int len1 = str1.length(), len2 = str2.length();
-        for (int i = Math.min(len1, len2); i >= 1; --i) {
-            if (valid(str1, str2, i)) {
-                return str1.substring(0, i);
-            }
-        }
-        return "";
-    }
-}
-```
-</details>
-<details>
-  <summary><b>Java</b></summary>
-
-``` java
-class Solution {
 public:
     bool valid(string str1, string str2, int k) {
         int len1 = str1.size(), len2 = str2.size();
@@ -104,6 +77,34 @@ public:
 ```
 </details>
 <details>
+  <summary><b>Java</b></summary>
+
+``` java
+class Solution {
+    public boolean valid(String str1, String str2, int k) {
+        int len1 = str1.length(), len2 = str2.length();
+        if (len1 % k > 0 || len2 % k > 0) {
+            return false;
+        } else {
+            String base = str1.substring(0, k);
+            return str1.replace(base, "").isEmpty() && str2.replace(base, "").isEmpty();
+        }
+    }
+    
+    
+    public String gcdOfStrings(String str1, String str2) {
+        int len1 = str1.length(), len2 = str2.length();
+        for (int i = Math.min(len1, len2); i >= 1; --i) {
+            if (valid(str1, str2, i)) {
+                return str1.substring(0, i);
+            }
+        }
+        return "";
+    }
+}
+```
+</details>
+<details>
   <summary><b>Python 3</b></summary>
 
 ``` python
@@ -131,6 +132,7 @@ Let $m,nm$, $nm,n$ be the lengths of the two input strings `str1` and `str2`.
 
 - Time complexity: $O(min⁡(m,n) \times (m+n))$ We checked every prefix string `base` of the shorter string among `str1` and `str2`, and verify if both strings are made by multiples of base. There are up to $min⁡(m,n)$ prefix strings to verify and each check involves iterating over the two input strings to check if the current `base` is the GCD string, which costs $O(m+n)$. Therefore, the overall time complexity is $O(min⁡(m,n) \times (m+n))$.
 - Space complexity: $O(min⁡(m,n))$ We need to keep a copy of `base` in each iteration, which takes $O(min(m,n))$ space.
+<br>
 
 #### Approach 2: Greatest Common Divisor
 

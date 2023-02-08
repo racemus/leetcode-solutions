@@ -1,12 +1,12 @@
 ### 1470. Shuffle the Array
 **Easy**
-<br />
-<br />
+<br>
+<br>
 
 Given the array `nums` consisting of `2 * n` elements in the form <code>[x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>,y<sub>1</sub>,y<sub>2</sub>,...,y<sub>n</sub>]</code>.
 
 Return the array in the form <code>[x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<sub>2</sub>,...,x<sub>n</sub>,y<sub>n</sub>]</code>.
-<br />
+<br>
 
 **Example 1:**
 
@@ -29,7 +29,7 @@ Return the array in the form <code>[x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<
 <b>Input:</b> nums = [1,1,2,2], n = 2
 <b>Output:</b> [1,2,1,2]
 </pre>
-<br />
+<br>
 
 **Constraints:**
 

@@ -4,6 +4,7 @@ We are given an array $nums$ with $2n$ elements, $[x_1, x_2, \dots , x_n, y_1, y
 We need to rearrange the original array as, $[x_1, y_1, x_2, y_2, \dots , x_n, y_n]$.
 
 ![show_using_image](Slide1.png)
+<br>
 
 #### Approach 1: Simple Iteration
 
@@ -113,6 +114,7 @@ Here, $2n$ is the number of elements in the `nums` array.
   - Thus, overall we take $O(n+2n)=O(n)$ time.
 - Space complexity: $O(1)$.
   - We are not using any additional space other than the output array.
+<br>
 
 #### Approach 2: In-place Filling
 
@@ -182,7 +184,7 @@ A = <span style = "color: rgb(181, 206, 168)">4</span> = <span style = "color: r
 A >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 A >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">1</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 A >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)">000</span> = <span style = "color: rgb(181, 206, 168)">0</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
-<br />
+<br>
 B = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">00101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
 B >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">00101</span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">00010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>

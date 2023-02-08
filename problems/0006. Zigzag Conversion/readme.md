@@ -1,7 +1,7 @@
 ### 6. Zigzag Conversion
 **Medium**
-<br />
-<br />
+<br>
+<br>
 
 The string `"PAYPALISHIRING"` is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
@@ -18,7 +18,7 @@ Write the code that will take a string and make this conversion given a number o
 ```
 string convert(string s, int numRows);
 ```
-<br />
+<br>
 
 **Example 1:**
 
@@ -45,7 +45,7 @@ P     I
 <b>Input:</b> s = "A", numRows = 1
 <b>Output:</b> "A"
 </pre>
-<br />
+<br>
 
 **Constraints:**
 

@@ -4,6 +4,7 @@ To check if the given `words` are sorted, for each word we need to check if ever
 
 ![Compare adjacent words.](953.png)
 *Figure 1. Compare adjacent words.*
+<br>
 
 #### Approach 1: Compare adjacent words
 
