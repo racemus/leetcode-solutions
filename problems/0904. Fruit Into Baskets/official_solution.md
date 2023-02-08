@@ -41,11 +41,14 @@ Take the following slides as an example:
 **Algorithm**
 
 1. Initialize `max_picked = 0` to track the maximum number of fruits we can collect.
+
 2. Iterate over the left index `left` of subarrays.
+
 3. For every subarray start at index `left`, iterate over every index `right` to fix the end of subarray.
+
 4. For each subarray `(left, right)`, count the types of fruits it contains.
-  - If there are no more than 2 types, this subarray is valid, we take its length to update `max_picked`.
-  - Otherwise, if the current subarray is invalid, we move on to the next subarray.
+   - If there are no more than 2 types, this subarray is valid, we take its length to update `max_picked`.
+   - Otherwise, if the current subarray is invalid, we move on to the next subarray.
 5. Once we finish the iteration, return `max_picked` as the maximum number of fruits we can collect.
 
 **Implementation**
@@ -199,10 +202,12 @@ Therefore, we only need two nested loops, the outer loop for the `left` index le
 **Algorithm**
 
 1. Initialize `max_picked` as $0$.
+
 2. Iterate over `left`, the left index of the subarray.
+
 3. For every subarray start at index `left`, we iterate over every index `right` to fix the end of subarray, and calculate the types of fruits in this subarray.
-  - If there are no more than 2 types, this subarray is valid, we update `max_picked` with the length of this subarray.
-  - Otherwise, the current subarray, as well as all the longer subarrays (with the same left index `left`) are invalid. Move on to the next left index `left + 1`.
+   - If there are no more than 2 types, this subarray is valid, we update `max_picked` with the length of this subarray.
+   - Otherwise, the current subarray, as well as all the longer subarrays (with the same left index `left`) are invalid. Move on to the next left index `left + 1`.
 4. Once we finish the iteration, return `max_picked` as the maximum number of fruits we can collect.
 
 **Implementation**
@@ -372,9 +377,10 @@ Take the following slides as an example:
 **Algorithm**
 
 1. Start with an empty window with `left` and `right` as its left and right index.
+
 2. We iterate over `right` and add `fruits[right]` to this window.
-  - If the number is no larger than 2, meaning that we collect no more than 2 types of fruits, this subarray is valid.
-  - Otherwise, it is not the right time to expand the window and we must keep its size. Since we have added one fruit from the right side, we should remove one fruit from the left side of the window, and increment `left` by 1.
+   - If the number is no larger than 2, meaning that we collect no more than 2 types of fruits, this subarray is valid.
+   - Otherwise, it is not the right time to expand the window and we must keep its size. Since we have added one fruit from the right side, we should remove one fruit from the left side of the window, and increment `left` by 1.
 3. Once we are done iterating, the difference between `left` and `right` stands for the longest valid subarray we encountered, i.e. the maximum number of fruits we can collect.
 
 **Implementation**
@@ -482,10 +488,10 @@ Let $n$ be the length of the input array `fruits`.
   - In summary, the overall time complexity is $O(n)$
 - Space complexity: $O(n)$
   - In the worst-case scenario, there might be at most $O(n)$ types of fruits inside the window. Take the picture below as an example. Imagine that we have an array of fruits like the following. (The first half is all one kind of fruit, while the second half is $n/2$ types of fruits)
-  ![img](904_sc_1.png)
-  In the first half of the iteration, the window size is expanded to $n/2$, i.e. $O(n)$. In the second half of the iteration, since we have to keep the window size, so it will contain all the $n/2$ types of fruits and end up with $O(n)$ space.
-  ![img](904_sc_2.png)
-  Therefore, the space complexity is $O(n)$.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![img](904_sc_1.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the first half of the iteration, the window size is expanded to $n/2$, i.e. $O(n)$. In the second half of the iteration, since we have to keep the window size, so it will contain all the $n/2$ types of fruits and end up with $O(n)$ space.
+: ![img](904_sc_2.png)
+: Therefore, the space complexity is $O(n)$.
 <br>
 
 #### Approach 4: Sliding Window II
@@ -517,11 +523,14 @@ For the details on the implementation, let's take a look at the following slides
 **Algorithm**
 
 1. Initialize `max_picked = 0` as the maximum fruits we can collect, and use hash map `basket` to record the types of fruits in the current window.
+
 2. Start with an empty window having `left = 0` and `right = 0` as its left and right index.
+
 3. We iterate over `right` and add `fruits[right]` to this window.
-  - If there are no more than 2 types of fruits, this subarray is valid.
-  - Otherwise, we need to keep removing fruits from the left side until there are only 2 types of fruits in the window.
-  Then we update `max_picked` as `max(max_picked, right - left + 1)`.
+   - If there are no more than 2 types of fruits, this subarray is valid.
+   - Otherwise, we need to keep removing fruits from the left side until there are only 2 types of fruits in the window.
+&nbsp;&nbsp;&nbsp;&nbsp;Then we update `max_picked` as `max(max_picked, right - left + 1)`.
+
 4. Once we finish iterating, return `max_picked` as the maximum number of fruits we can collect.
 
 **Implementation**
