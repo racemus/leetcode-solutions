@@ -1,8 +1,9 @@
 ### 1470. Shuffle the Array
 **Easy**
-
 <br />
-Given the array `nums` consisting of `2n` elements in the form <code>[x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>,y<sub>1</sub>,y<sub>2</sub>,...,y<sub>n</sub>]</code>.
+<br />
+
+Given the array `nums` consisting of `2 * n` elements in the form <code>[x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>,y<sub>1</sub>,y<sub>2</sub>,...,y<sub>n</sub>]</code>.
 
 Return the array in the form <code>[x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<sub>2</sub>,...,x<sub>n</sub>,y<sub>n</sub>]</code>.
 <br />
@@ -32,6 +33,6 @@ Return the array in the form <code>[x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<
 
 **Constraints:**
 
-- 1 <= n <= 500
-- nums.length == 2n
+- `1 <= n <= 500`
+- `nums.length == 2n`
 - <code>1 <= nums[i] <= 10<sup>3</sup></code>

@@ -2,7 +2,7 @@
 
 In this problem, we are looking for the Greatest Common Divisor of two strings, which for convenience we will consider as the **GCD string**. To remove ambiguity, here we regard:
 
-- all strings that divides both str1 and str2 as **divisible strings**.
+- all strings that divides both `str1` and `str2` as **divisible strings**.
 - the longest string among all **divisible strings** as the **GCD string**.
 
 #### Approach 1: Brute Force
@@ -127,10 +127,10 @@ class Solution:
 
 **Complexity Analysis**
 
-Let $m,nm$, nm,n be the lengths of the two input strings `str1` and `str2`.
+Let $m,nm$, $nm,n$ be the lengths of the two input strings `str1` and `str2`.
 
-- Time complexity: $O(min⁡(m,n)⋅(m+n))$ We checked every prefix string `base` of the shorter string among `str1` and `str2`, and verify if both strings are made by multiples of base. There are up to $min⁡(m,n)$ prefix strings to verify and each check involves iterating over the two input strings to check if the current `base` is the GCD string, which costs $O(m+n)$. Therefore, the overall time complexity is $O(min⁡(m,n)⋅(m+n))$.
-- Space complexity: $O(min⁡(m,n))$ We need to keep a copy of `base` in each iteration, which takes $O(min(m, n))$ space.
+- Time complexity: $O(min⁡(m,n) \times (m+n))$ We checked every prefix string `base` of the shorter string among `str1` and `str2`, and verify if both strings are made by multiples of base. There are up to $min⁡(m,n)$ prefix strings to verify and each check involves iterating over the two input strings to check if the current `base` is the GCD string, which costs $O(m+n)$. Therefore, the overall time complexity is $O(min⁡(m,n) \times (m+n))$.
+- Space complexity: $O(min⁡(m,n))$ We need to keep a copy of `base` in each iteration, which takes $O(min(m,n))$ space.
 
 #### Approach 2: Greatest Common Divisor
 
@@ -274,6 +274,6 @@ Let $m,n$ be the lengthes of the two input strings `str1` and `str2`.
 
 - Time complexity: $O(m+n)$
   - We need to compare the two concatenations of length $O(m+n)$, it takes $O(m+n)$ time.
-  - We calculate the GCD using binary Euclidean algorithm, it takes $log⁡(m⋅n)$ time.
+  - We calculate the GCD using binary Euclidean algorithm, it takes $log⁡(m \times n)$ time.
   - To sum up, the overall time complexity is $O(m+n)$.
 - Space complexity: $O(m+n)$ We need to compare the two concatenations of length $O(m+n)$.

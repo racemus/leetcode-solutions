@@ -1,25 +1,25 @@
 #### Overview
 
-We are given an array $nums$ with $2*n$ elements, $[x_1, x_2, ... , x_n, y_1, y_2, ... , y_n]$
-We need to rearrange the original array as, $[x_1, y_1, x_2, y_2, ... , x_n, y_n]$.
+We are given an array $nums$ with $2n$ elements, $[x_1, x_2, \dots , x_n, y_1, y_2, \dots , y_n]$
+We need to rearrange the original array as, $[x_1, y_1, x_2, y_2, \dots , x_n, y_n]$.
 
-![show_using_image](slide1.png)
+![show_using_image](Slide1.png)
 
 #### Approach 1: Simple Iteration
 
 **Intuition**
 
-Let us start by trying to identify some patterns in the original array, The elements from $x_1$ to $x_n$ exist from indices $0$ to $n−1$ and elements from $y_1$ to $y_n$ from indices $n$ to $2*n−1$. The elements of $x$ should be placed at indices `0, 2, 4, ...`. At `nums[i]` we have element $x_i+1$, we should place it at index $2*i$ for all $0≤i<n$.
+Let us start by trying to identify some patterns in the original array, The elements from $x_1$ to $x_n$ exist from indices $0$ to $n−1$ and elements from $y_1$ to $y_n$ from indices $n$ to $2n−1$. The elements of $x$ should be placed at indices `0, 2, 4, ...`. At `nums[i]` we have element $x_i+1$, we should place it at index $2 \times i$ for all $0 \leqslant i \lt n$.
 
-The elements of $y$ should be placed at indices `1, 3, 5, ...`. At `nums[n + i]` we have element $y_i+1$, we should place it at index $2*i+1$ for all $0≤i<n$. Notice that it is the same formula as the previous one but with a $+1$, indicating that elements of $y$ come after elements of $x$.
+The elements of $y$ should be placed at indices `1, 3, 5, ...`. At `nums[n + i]` we have element $y_i+1$, we should place it at index $2 \times i+1$ for all $0 \leqslant i \lt n$. Notice that it is the same formula as the previous one but with a $+1$, indicating that elements of $y$ come after elements of $x$.
 
-![places](slide2.png)
+![places](Slide2.png)
 
-One of the intuitive ways to solve this is to have an extra array `result` of size $2*n$, then iterate over `nums` and place each of its elements at the respective positions in `result`.
+One of the intuitive ways to solve this is to have an extra array `result` of size $2n$, then iterate over `nums` and place each of its elements at the respective positions in `result`.
 
 **Algorithm**
 
-1. Build an array `result` of size $2*n$.
+1. Build an array `result` of size $2n$.
 2. Iterate over the `nums` array ranging from indices `0` to `n - 1`:
   - Store the element $x_i+1$, that is `nums[i]` at index `2 * i`, and element $y_i+1$, that is `nums[i + n]` at index `2 * i + 1` in `result`.
 3. Return the `result` array.
@@ -105,7 +105,7 @@ class Solution:
 
 **Complexity Analysis**
 
-Here, $2*n$ is the number of elements in the `nums` array.
+Here, $2n$ is the number of elements in the `nums` array.
 
 - Time complexity: $O(n)$.
   - We iterate on $n$ elements of the `nums` array, which takes us $O(n)$ time.
@@ -133,56 +133,58 @@ At the heart of bit manipulation are the bit-wise operators:
 **NOT (~):** Bitwise NOT is a unary operator that flips the bits of the number i.e., if the current bit is $0$, it will change it to $1$ and vice versa.
 
 <pre>
-N = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
-~N = ~(<span style = "color: rgb(181, 206, 168)">101</span>) = <span style = "color: rgb(181, 206, 168)"> 010 </span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+<code>
+N = <span style = "color: rgb(181, 206, 168);">5</span> = <span style = "color: rgb(181, 206, 168);">101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
+~N = ~(<span style = "color: rgb(181, 206, 168)">101</span>) = <span style = "color: rgb(181, 206, 168);">010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214);">in decimal</span>)
+</code>
 </pre>
 
 **AND (&):** In bitwise AND if both bits in the compared position of the bit patterns are $1$, the bit in the resulting bit pattern is $1$, otherwise $0$.
 
 <pre>
 A = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-B = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-A & B = <span style = "color: rgb(181, 206, 168)">101</span> & <span style = "color: rgb(181, 206, 168)"> 001 </span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> = <span style = "color: rgb(181, 206, 168)">1</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+B = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">001</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
+A & B = <span style = "color: rgb(181, 206, 168)">101</span> & <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">1</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>
 
 **OR ( | ):** Bitwise OR is also similar to bitwise AND. If both bits in the compared position of the bit patterns are $0$, the bit in the resulting bit pattern is $0$, otherwise $1$.
 
 <pre>
 <span style = "color: rgb(156, 220, 254)">A</span> = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-<span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-<span style = "color: rgb(78, 201, 176)">A</span> | <span style = "color: rgb(78, 201, 176)">B</span> = <span style = "color: rgb(181, 206, 168)">101</span> | <span style = "color: rgb(181, 206, 168)"> 001 </span> = <span style = "color: rgb(181, 206, 168)">101</span> = <span style = "color: rgb(181, 206, 168)">5</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+<span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">001</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
+<span style = "color: rgb(78, 201, 176)">A</span> | <span style = "color: rgb(78, 201, 176)">B</span> = <span style = "color: rgb(181, 206, 168)">101</span> | <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">101</span> = <span style = "color: rgb(181, 206, 168)">5</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>
 
 **XOR (^):** In bitwise XOR if both bits are $0$ or $1$, the result will be $0$, otherwise $1$.
 
 <pre>
 <span style = "color: rgb(156, 220, 254)">A</span> = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-<span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-<span style = "color: rgb(156, 220, 254)">A</span> ^ <span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">101</span> ^ <span style = "color: rgb(181, 206, 168)"> 001 </span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> = <span style = "color: rgb(181, 206, 168)">4</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+<span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">001</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
+<span style = "color: rgb(156, 220, 254)">A</span> ^ <span style = "color: rgb(156, 220, 254)">B</span> = <span style = "color: rgb(181, 206, 168)">101</span> ^ <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">100</span> = <span style = "color: rgb(181, 206, 168)">4</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>
 
 **Left Shift (<<):** Left shift operator is a binary operator which shifts some number of bits to the left and appends $0$ at the end. One left shift is equivalent to multiplying the bit pattern with $2$.
 
 <pre>
-A = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-A << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 010 </span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
-A << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> = <span style = "color: rgb(181, 206, 168)">4</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+A = <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">001</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
+A << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">001</span> << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+A << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">001</span> << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">100</span> = <span style = "color: rgb(181, 206, 168)">4</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 
-B = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)"> 00101 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
-B << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 00101 </span> << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 01010 </span> = <span style = "color: rgb(181, 206, 168)"> 10 </span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
-B << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 00101 </span> << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 10100 </span> = <span style = "color: rgb(181, 206, 168)"> 20 </span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+B = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">00101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
+B << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">00101</span> << <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">01010</span> = <span style = "color: rgb(181, 206, 168)">10</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+B << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">00101</span> << <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">10100</span> = <span style = "color: rgb(181, 206, 168)">20</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>
 
 **Right Shift (>>):** Right shift operator is a binary operator which shifts some number of bits to the right and appends $0$ at the left side. One right shift is equivalent to dividing the bit pattern with $2$.
 
 <pre>
-A = <span style = "color: rgb(181, 206, 168)">4</span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
-A >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 010 </span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
-A >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)"> 001 </span> = <span style = "color: rgb(181, 206, 168)">1</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
-A >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)"> 100 </span> >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)"> 000 </span> = <span style = "color: rgb(181, 206, 168)">0</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+A = <span style = "color: rgb(181, 206, 168)">4</span> = <span style = "color: rgb(181, 206, 168)">100</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>) 
+A >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+A >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">2</span> = <span style = "color: rgb(181, 206, 168)">001</span> = <span style = "color: rgb(181, 206, 168)">1</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+A >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)">100</span> >> <span style = "color: rgb(181, 206, 168)">3</span> = <span style = "color: rgb(181, 206, 168)">000</span> = <span style = "color: rgb(181, 206, 168)">0</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 <br />
-B = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)"> 00101 </span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
-B >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 00101 </span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)"> 00010 </span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
+B = <span style = "color: rgb(181, 206, 168)">5</span> = <span style = "color: rgb(181, 206, 168)">00101</span> (<span style = "color: rgb(86, 156, 214)">in binary</span>)
+B >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">00101</span> >> <span style = "color: rgb(181, 206, 168)">1</span> = <span style = "color: rgb(181, 206, 168)">00010</span> = <span style = "color: rgb(181, 206, 168)">2</span> (<span style = "color: rgb(86, 156, 214)">in decimal</span>)
 </pre>
 </details>
 
@@ -191,15 +193,15 @@ Thus each element will take at most $10$-bits in a $32$-bit integer and the rema
 
 This suggests the idea that in the remaining empty unused bits we can store some extra information. One possible solution is storing two numbers together (the first number in the first ten bits and the second in the next ten bits) without using additional space.
 
-![together](slide3.png)
+![together](Slide3.png)
 
 We will store the last $n$ numbers with the first $n$ numbers of the `nums` array. Thus, $x_i$ and $y_i$ are stored at $i^th$ index.
 
 And then we can store the numbers at their respective positions after starting iteration on the stored pairs from index $(n−1)$ to index $0$.
-We would like to move in this direction (right to left) because, even if the right side elements are overwritten, we will not use those overwritten elements again because the current index ($i$) having a number pair will always be less or equal to the updated cells ($i<=2*i$ and $2*i+1$).
+We would like to move in this direction (right to left) because, even if the right side elements are overwritten, we will not use those overwritten elements again because the current index \($i$\) having a number pair will always be less or equal to the updated cells \($i \leqslant 2 \times i$ and $2 \times i+1$\).
 Thus, the overwritten elements would have already been placed at their correct positions earlier.
 
-![map_array](slide4.png)
+![map_array](Slide4.png)
 
 **Storing two numbers together:**
 
@@ -208,10 +210,10 @@ $a$ is the first number, $b$ is the second number.
 We can left shift $b$ by $10$ bits and take its bitwise-OR with $a$.
 When we take any bit's bitwise-OR with $0$, it results in the same bit, and $1$ results in $1$.
 
-The first $10$ bits in $b_new$ are $0$. So, when we take its bitwise-OR with $a$, the result's first $10$ bits will have $a$'s $10$ bits, and the next $10$ bits of $a$ are $0$, so the result's next $10$ will store $b$'s $10$ bits there.
+The first $10$ bits in $b_{new}$ are $0$. So, when we take its bitwise-OR with $a$, the result's first $10$ bits will have $a$'s $10$ bits, and the next $10$ bits of $a$ are $0$, so the result's next $10$ will store $b$'s $10$ bits there.
 Thus the final result has bits of both $a$ and $b$.
 
-![store](slide5.png)
+![store](Slide5.png)
 
 **Extracting both numbers:**
 
@@ -222,7 +224,7 @@ When we take a bit's AND with $1$ it results in the same bit and with $0$ result
 
 $result$'s next $10$ bits contain $b$, thus we can retrieve it by right shifting it by $10$ bits.
 
-![extract](slide6.png)
+![extract](Slide6.png)
 
 **Algorithm**
 
@@ -348,7 +350,7 @@ class Solution:
 
 **Complexity Analysis**
 
-Here, $2*n$ is the number of elements in the `nums` array.
+Here, $2n$ is the number of elements in the `nums` array.
 
 - Time complexity: $O(n)$.
   - We only iterate on the $n$ elements of the `nums` array twice, which takes us $O(n)$ time.
