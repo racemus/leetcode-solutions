@@ -1,6 +1,10 @@
 import unittest
 
 class Solution:
+    '''
+    It converts strings to binary integers and return the sum of them using python
+    internal methods.
+    '''
     def addBinary(self, a: str, b: str) -> str:
         return bin(int(a,2) + int(b,2))[2:]
 
